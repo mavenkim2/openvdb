@@ -615,7 +615,8 @@ GridHandle<BufferT> readGrid(const std::string& fileName, const std::string& gri
 {
     std::ifstream is(fileName, std::ios::in | std::ios::binary);
     if (!is.is_open()) {
-        throw std::runtime_error("Unable to open file named \"" + fileName + "\" for input");
+        assert(0);
+        // throw std::runtime_error("Unable to open file named \"" + fileName + "\" for input");
     }
     auto handle = readGrid<BufferT>(is, gridName, buffer);
     if (verbose) {

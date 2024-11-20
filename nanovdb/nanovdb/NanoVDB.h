@@ -566,8 +566,9 @@ public:
 #ifndef __CUDACC_RTC__
     const char* c_str() const
     {
-        char *buffer = (char*)malloc(4 + 1 + 4 + 1 + 4 + 1);// xxxx.xxxx.xxxx\n
-        sprintf(buffer, "%d.%d.%d", this->getMajor(), this->getMinor(), this->getPatch());
+        int size = 4 + 1 + 4 + 1 + 4 + 1;
+        char *buffer = (char*)malloc(size);// xxxx.xxxx.xxxx\n
+        sprintf_s(buffer, size, "%d.%d.%d", this->getMajor(), this->getMinor(), this->getPatch());
         return buffer;
     }
 #endif
